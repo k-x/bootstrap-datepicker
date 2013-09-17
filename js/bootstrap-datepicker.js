@@ -1,3 +1,4 @@
+// fork: https://github.com/k-x/bootstrap-datepicker
 /* =========================================================
  * bootstrap-datepicker.js
  * http://www.eyecon.ro/bootstrap-datepicker
@@ -363,6 +364,11 @@
 
 		getUTCDate: function() {
 			return this.date;
+		},
+
+		isoDateFormat: {separators: ["", "-", "-", ""], parts: ["yyyy","mm","dd"]},
+		getISODate: function() {
+			return (this.element.val() ? this.getFormattedDate(this.isoDateFormat) : null);
 		},
 
 		setDate: function(d) {
@@ -1209,6 +1215,10 @@
 			if (date instanceof Date) return date;
 			if (typeof format === 'string')
 				format = DPGlobal.parseFormat(format);
+			if (/^\d{4}-\d{2}-\d{2}$/.test(date)) { // ISO date format
+				var parts = date.split("-");
+				return UTCDate(parts[0], parseInt(parts[1], 10) - 1, parts[2], 0, 0, 0);
+			}
 			if (/^[\-+]\d+[dmwy]([\s,]+[\-+]\d+[dmwy])*$/.test(date)) {
 				var part_re = /([\-+]\d+)([dmwy])/,
 					parts = date.match(/([\-+]\d+)([dmwy])/g),
