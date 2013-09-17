@@ -1,3 +1,12 @@
+Changes in this fork:
+* Input can have initial value in ISO format (yyyy-mm-dd)
+* getISODate method: $input.datepicker('getISODate') → 'yyyy-mm-dd' (or null if the input has no value)
+* Minor fixes (see history)
+
+-------------
+Below is the original README.md
+-------------
+
 # [bootstrap-datepicker](http://eternicode.github.com/bootstrap-datepicker/) [![Build Status](https://travis-ci.org/eternicode/bootstrap-datepicker.png?branch=master)](https://travis-ci.org/eternicode/bootstrap-datepicker)
 
 This is a fork of Stefan Petre's [original code](http://www.eyecon.ro/bootstrap-datepicker/);
