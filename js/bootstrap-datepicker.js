@@ -1249,7 +1249,7 @@
 				parsed = {},
 				setters_order = ['yyyy', 'yy', 'M', 'MM', 'm', 'mm', 'd', 'dd'],
 				setters_map = {
-					yyyy: function(d,v){ return d.setUTCFullYear(v); },
+					yyyy: function(d,v){ return d.setUTCFullYear(v < 70 ? 2000+v : v); },
 					yy: function(d,v){ return d.setUTCFullYear(2000+v); },
 					m: function(d,v){
 						if (isNaN(d))
