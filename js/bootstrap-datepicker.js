@@ -85,7 +85,7 @@
 
 		this.update();
 		this.showMode();
-		this.setValue();
+		if (this.element.val()) { this.setValue(); }
 
 		if(this.isInline) {
 			this.show();
